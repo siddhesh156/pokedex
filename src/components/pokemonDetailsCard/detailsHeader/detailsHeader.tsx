@@ -1,14 +1,14 @@
-import React from 'react';
-import PokemonCard from "../../pokemonCard/pokemonCard";
-import AppTooltip from "../../../hooks/tooltip/tooltip";
-import backIcon from "../../../assets/icons/back-icon.png";
-import closeIcon from "../../../assets/icons/close-icon.png"
-import rightIcon from "../../../assets/icons/right-icon.png"
-import { numberFormation } from "../../../services/common.service";
-import { getPokemonDescription } from "../../../constants/pokemon.types";
-import "./detailsHeader.scss";
-import "../../../styles/common.scss";
 import PropTypes from 'prop-types';
+import React from 'react';
+import backIcon from '../../../assets/icons/back-icon.png';
+import closeIcon from '../../../assets/icons/close-icon.png';
+import rightIcon from '../../../assets/icons/right-icon.png';
+import { getPokemonDescription } from '../../../constants/pokemon.types';
+import AppTooltip from '../../../hooks/tooltip/tooltip';
+import { numberFormation } from '../../../services/common.service';
+import '../../../styles/common.scss';
+import PokemonCard from '../../pokemonCard/pokemonCard';
+import './detailsHeader.scss';
 
 const DetailsHeader = ({ data, speciesData, ...props }) => {
 
@@ -16,9 +16,9 @@ const DetailsHeader = ({ data, speciesData, ...props }) => {
         if (speciesData && speciesData.flavor_text_entries) {
             return getPokemonDescription(speciesData.flavor_text_entries);
         } else {
-            return "";
+            return '';
         }
-    }
+    };
 
     return (
         <>
@@ -61,7 +61,7 @@ DetailsHeader.propTypes = {
     speciesData: PropTypes.object,
     backClick: PropTypes.func,
     closeClick: PropTypes.func,
-    forwordClick: PropTypes.func
-}
+    forwordClick: PropTypes.func,
+};
 
 export default DetailsHeader;

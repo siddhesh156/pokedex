@@ -1,9 +1,9 @@
-import React from 'react';
-import "./evolutionChainCard.scss"
-import "../../../styles/common.scss";
-import PokemonCard from "../../pokemonCard/pokemonCard";
-import rightArrowIcon from "../../../assets/icons/right-arrow.png"
 import PropTypes from 'prop-types';
+import React from 'react';
+import rightArrowIcon from '../../../assets/icons/right-arrow.png';
+import '../../../styles/common.scss';
+import PokemonCard from '../../pokemonCard/pokemonCard';
+import './evolutionChainCard.scss';
 
 const EvolutionChainCard = ({ data }) => {
     const arrayele = [1, 2, 3];
@@ -29,11 +29,11 @@ const EvolutionChainCard = ({ data }) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 EvolutionChainCard.propTypes = {
     data: PropTypes.object,
-}
+};
 
 export default EvolutionChainCard;

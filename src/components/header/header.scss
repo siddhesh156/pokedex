@@ -4,7 +4,7 @@
 .header {
   height: var(--header-height);
   padding: 0px;
-  @include flex-row(center, start);
+  @include flex-row(center, flex-start);
   font-weight: 600;
   z-index: 2;
   top: 0;

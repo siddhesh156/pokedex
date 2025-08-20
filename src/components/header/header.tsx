@@ -1,6 +1,6 @@
-import React from 'react';
-import "./header.scss";
 import PropTypes from 'prop-types';
+import React from 'react';
+import './header.scss';
 
 
 const Header = ({ children }) => {
@@ -12,7 +12,7 @@ const Header = ({ children }) => {
 };
 
 Header.propTypes = {
-  children: PropTypes.any
-}
+  children: PropTypes.any,
+};
 
 export default Header;

@@ -1,0 +1,12 @@
+{
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "semicolon": [true, "always"],
+    "quotemark": [true, "single", "jsx-double"],
+    "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
+    "no-console": false,
+    "object-literal-sort-keys": false
+  },
+  "rulesDirectory": []
+}

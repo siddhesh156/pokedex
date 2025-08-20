@@ -1,5 +1,5 @@
 
-import { LIMIT, baseURL } from "../constants/apiUrls";
+import { baseURL, LIMIT } from '../constants/apiUrls';
 
 export const initialURL = `${baseURL}/pokemon?limit=${LIMIT}`;
 export const allPokemonURL = `${baseURL}/pokemon?limit=1100`;
@@ -47,13 +47,13 @@ export const getPokemonDataByURL = async (URL) => {
   const response = await fetch(URL);
   const result = response.json();
   return result;
-}
+};
 
 export const numberFormation = (number) => {
-  if (Number(number) < 10) number = `00${number}`;
-  if (Number(number) > 10 && Number(number) < 100) number = `0${number}`;
+  if (Number(number) < 10) { number = `00${number}`; }
+  if (Number(number) > 10 && Number(number) < 100) { number = `0${number}`; }
   return number;
-}
+};
 
 export const getAllParallelCall = async (ApiUrls) => {
   return await Promise.all(
@@ -61,8 +61,8 @@ export const getAllParallelCall = async (ApiUrls) => {
       const res = await fetch(url);
       return res.json(); // Send request for each id
     }));
-}
+};
 
 export const removeDuplicateBy = (arr, prop) => {
   return [...new Map(arr.map((m) => [m[prop], m])).values()];
-}
+};

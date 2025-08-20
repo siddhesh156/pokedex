@@ -1,12 +1,12 @@
-import './details.page.scss';
-import React, { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import { Loader, Modal, Placeholder } from 'rsuite';
-import { getPokemonDataById, getPokemonTypesById, getSpeciesDataById } from "../../services/common.service";
 import DetailsHeader from '../../components/pokemonDetailsCard/detailsHeader/detailsHeader';
+import EvolutionChainCard from '../../components/pokemonDetailsCard/evolutionChainCard/evolutionChainCard';
 import PropertyCard from '../../components/pokemonDetailsCard/propertyCard/propertyCard';
 import StatCard from '../../components/pokemonDetailsCard/statCard/statCard';
-import EvolutionChainCard from '../../components/pokemonDetailsCard/evolutionChainCard/evolutionChainCard';
-import PropTypes from 'prop-types';
+import { getPokemonDataById, getPokemonTypesById, getSpeciesDataById } from '../../services/common.service';
+import './details.page.scss';
 
 
 const DetailPage = ({ isCardSelected, toggleModal, pokemonId, offset }) => {
@@ -22,9 +22,9 @@ const DetailPage = ({ isCardSelected, toggleModal, pokemonId, offset }) => {
 
 
     useEffect(() => {
-        if (!currentPokemonId) return;
+        if (!currentPokemonId) { return; }
         (async function setPokemonDetails() {
-            setLoading(true)
+            setLoading(true);
             const response = await getPokemonDataById(currentPokemonId);
             setPokemonData(response);
             setLoading(false);
@@ -36,23 +36,23 @@ const DetailPage = ({ isCardSelected, toggleModal, pokemonId, offset }) => {
     }, [currentPokemonId]);
 
     const handleForwordClick = () => {
-        if (currentPokemonId === offset) return;
+        if (currentPokemonId === offset) { return; }
         setCurrentPokemonId(currentPokemonId + 1);
-    }
+    };
     const handleBackwordClick = () => {
-        if (currentPokemonId === 1) return;
+        if (currentPokemonId === 1) { return; }
         setCurrentPokemonId(currentPokemonId - 1);
-    }
+    };
 
     const closePopUp = () => {
-        setCloseModal(false)
-    }
+        setCloseModal(false);
+    };
 
     return (
         <>
             <Modal
-                dialogClassName={"details-modal-container"}
-                size={"md"}
+                dialogClassName={'details-modal-container'}
+                size={'md'}
                 open={isModalOpen}
                 onClose={handleClose}
                 onExited={() => {
@@ -94,13 +94,13 @@ const DetailPage = ({ isCardSelected, toggleModal, pokemonId, offset }) => {
 
             </Modal>
         </>
-    )
-}
+    );
+};
 DetailPage.propTypes = {
     isCardSelected: PropTypes.bool,
     toggleModal: PropTypes.any,
     pokemonId: PropTypes.number,
-    offset: PropTypes.number
-}
+    offset: PropTypes.number,
+};
 
 export default DetailPage;

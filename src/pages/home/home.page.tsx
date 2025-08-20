@@ -1,13 +1,13 @@
-import React, { useContext, useMemo, useState } from "react";
-import Header from "../../components/header/header";
-import "./home.scss";
-import "../../styles/common.scss";
-import PokemonCard from "../../components/pokemonCard/pokemonCard";
-import Apploader from "../../components/loader/loader";
-import PokemonContext from "../../context/pokemonContext/pokmon.context";
-import DetailPage from "../details/details.page";
-import { Button, Col, Row } from "rsuite";
-import AppFilter from "../../components/filter/filter";
+import React, { useContext, useMemo, useState } from 'react';
+import { Button, Col, Row } from 'rsuite';
+import AppFilter from '../../components/filter/filter';
+import Header from '../../components/header/header';
+import Apploader from '../../components/loader/loader';
+import PokemonCard from '../../components/pokemonCard/pokemonCard';
+import PokemonContext from '../../context/pokemonContext/pokmon.context';
+import '../../styles/common.scss';
+import DetailPage from '../details/details.page';
+import './home.scss';
 
 
 const HomePage = () => {
@@ -29,20 +29,20 @@ const HomePage = () => {
         }} />
         </div>
       )),
-    [pokemonsList]
+    [pokemonsList],
   );
 
   const handleLoadMoreClick = () => {
     getPokemonData();
-  }
+  };
 
   const toggleModal = () => {
     setToggleSelect((prevState) => !prevState);
-  }
+  };
 
   const isFilterEnableHandler = (isEnable) => {
     setIsFilterEnable(isEnable);
-  }
+  };
 
   // if (isLoading) return (<Apploader className="app-loader-wrapper" />);
 
@@ -96,8 +96,8 @@ const HomePage = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 
 export default HomePage;
