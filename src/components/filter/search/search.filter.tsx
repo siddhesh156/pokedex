@@ -1,11 +1,18 @@
 
 import SearchIcon from '@rsuite/icons/Search';
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Input, InputGroup } from 'rsuite';
 import './search.filter.scss';
 
-const SearchFilter = ({ placeholder, inputClass, onChangeHandler, ...props }) => {
+interface SearchFilterProps {
+    placeholder?: string;
+    inputClass?: string;
+    onChangeHandler?: (value: string) => void;
+    label?: React.ReactNode;
+    [key: string]: any;
+}
+
+const SearchFilter: React.FC<SearchFilterProps> = ({ placeholder, inputClass, onChangeHandler, ...props }) => {
 
     return (
         <>
@@ -25,12 +32,7 @@ const SearchFilter = ({ placeholder, inputClass, onChangeHandler, ...props }) =>
 
     );
 };
-SearchFilter.propTypes = {
-    placeholder: PropTypes.string,
-    inputClass: PropTypes.string,
-    onChangeHandler: PropTypes.func,
-    label: PropTypes.any,
-};
+
 
 
 export default SearchFilter;

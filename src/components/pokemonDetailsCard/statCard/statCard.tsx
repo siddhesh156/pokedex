@@ -1,16 +1,21 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Col, Grid, Row } from 'rsuite';
 import { getCamleCaseString } from '../../../constants/pokemon.types';
 import './statCard.scss';
 
-const StatCard = ({ stats }) => {
+interface StatCardProps {
+  stats: any[];
+}
+
+const StatCard: React.FC<StatCardProps> = ({ stats }) => {
   // const {data} = data;
   const getStatHeading = (name) => {
     if (name === 'hp') {
       return 'HP';
     } else {
-      let [firstName, lastName] = name.split('-');
+  let firstName;
+  const [first, lastName] = name.split('-');
+  firstName = first;
       if (firstName === 'special' && lastName) { return firstName = 'Sp. ' + getCamleCaseString(lastName); }
       else { return getCamleCaseString(firstName); }
     }
@@ -46,9 +51,7 @@ const StatCard = ({ stats }) => {
   );
 };
 
-StatCard.propTypes = {
-  stats: PropTypes.array,
-};
+
 
 
 export default StatCard;

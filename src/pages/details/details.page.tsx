@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { Loader, Modal, Placeholder } from 'rsuite';
 import DetailsHeader from '../../components/pokemonDetailsCard/detailsHeader/detailsHeader';
@@ -9,7 +8,14 @@ import { getPokemonDataById, getPokemonTypesById, getSpeciesDataById } from '../
 import './details.page.scss';
 
 
-const DetailPage = ({ isCardSelected, toggleModal, pokemonId, offset }) => {
+interface DetailPageProps {
+    isCardSelected: boolean;
+    toggleModal: () => void;
+    pokemonId: number;
+    offset: number;
+}
+
+const DetailPage: React.FC<DetailPageProps> = ({ isCardSelected, toggleModal, pokemonId, offset }) => {
 
     const [currentPokemonId, setCurrentPokemonId] = useState(pokemonId);
     const handleClose = () => toggleModal();
@@ -96,11 +102,6 @@ const DetailPage = ({ isCardSelected, toggleModal, pokemonId, offset }) => {
         </>
     );
 };
-DetailPage.propTypes = {
-    isCardSelected: PropTypes.bool,
-    toggleModal: PropTypes.any,
-    pokemonId: PropTypes.number,
-    offset: PropTypes.number,
-};
+
 
 export default DetailPage;

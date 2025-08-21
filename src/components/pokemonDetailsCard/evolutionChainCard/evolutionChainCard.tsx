@@ -1,11 +1,14 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import rightArrowIcon from '../../../assets/icons/right-arrow.png';
 import '../../../styles/common.scss';
 import PokemonCard from '../../pokemonCard/pokemonCard';
 import './evolutionChainCard.scss';
 
-const EvolutionChainCard = ({ data }) => {
+interface EvolutionChainCardProps {
+    data: any; // Replace 'any' with a more specific type if available
+}
+
+const EvolutionChainCard: React.FC<EvolutionChainCardProps> = ({ data }) => {
     const arrayele = [1, 2, 3];
 
     return (
@@ -22,7 +25,15 @@ const EvolutionChainCard = ({ data }) => {
                             {arrayele.length !== index + 1 && (
                                 <div>
                                     <div className="evol-next-arrow">
-                                    <img src={rightArrowIcon} alt="right arrow icon" onKeyDown={() => { }} role="presentation"></img>
+                                                                        <button
+                                                                            type="button"
+                                                                            className="icon-button"
+                                                                            aria-label="Next evolution"
+                                                                            tabIndex={0}
+                                                                            style={{ background: 'none', border: 'none', padding: 0, margin: 0 }}
+                                                                        >
+                                                                            <img src={rightArrowIcon} alt="" />
+                                                                        </button>
                                     </div>
                                 </div>)}
                         </div>))}
@@ -32,8 +43,6 @@ const EvolutionChainCard = ({ data }) => {
     );
 };
 
-EvolutionChainCard.propTypes = {
-    data: PropTypes.object,
-};
+
 
 export default EvolutionChainCard;

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import backIcon from '../../../assets/icons/back-icon.png';
 import closeIcon from '../../../assets/icons/close-icon.png';
@@ -10,7 +9,15 @@ import '../../../styles/common.scss';
 import PokemonCard from '../../pokemonCard/pokemonCard';
 import './detailsHeader.scss';
 
-const DetailsHeader = ({ data, speciesData, ...props }) => {
+interface DetailsHeaderProps {
+    data: any; // Replace 'any' with a more specific type if available
+    speciesData: any;
+    backClick?: () => void;
+    closeClick?: () => void;
+    forwordClick?: () => void;
+}
+
+const DetailsHeader: React.FC<DetailsHeaderProps> = ({ data, speciesData, backClick, closeClick, forwordClick }) => {
 
     const getPokemonDescriptions = () => {
         if (speciesData && speciesData.flavor_text_entries) {
@@ -39,9 +46,36 @@ const DetailsHeader = ({ data, speciesData, ...props }) => {
                             <div className="horizontal-line"></div>
                             <div>
                                 <div className="icon-wrap">
-                                    <img src={backIcon} alt="back icon to go backword" onClick={props.backClick} onKeyDown={() => { }} role="presentation"></img>
-                                    <img src={closeIcon} alt="close icon to go backword" onClick={props.closeClick} onKeyDown={() => { }} role="presentation"></img>
-                                    <img src={rightIcon} alt="forword icon to go backword" onClick={props.forwordClick} onKeyDown={() => { }} role="presentation"></img>
+                                    <button
+                                        type="button"
+                                        onClick={backClick}
+                                        className="icon-button"
+                                        aria-label="Go back"
+                                        tabIndex={0}
+                                        style={{ background: 'none', border: 'none', padding: 0, margin: 0 }}
+                                    >
+                                        <img src={backIcon} alt="" />
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={closeClick}
+                                        className="icon-button"
+                                        aria-label="Close"
+                                        tabIndex={0}
+                                        style={{ background: 'none', border: 'none', padding: 0, margin: 0 }}
+                                    >
+                                        <img src={closeIcon} alt="" />
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={forwordClick}
+                                        className="icon-button"
+                                        aria-label="Go forward"
+                                        tabIndex={0}
+                                        style={{ background: 'none', border: 'none', padding: 0, margin: 0 }}
+                                    >
+                                        <img src={rightIcon} alt="" />
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -56,12 +90,6 @@ const DetailsHeader = ({ data, speciesData, ...props }) => {
         </>
     );
 };
-DetailsHeader.propTypes = {
-    data: PropTypes.object,
-    speciesData: PropTypes.object,
-    backClick: PropTypes.func,
-    closeClick: PropTypes.func,
-    forwordClick: PropTypes.func,
-};
+
 
 export default DetailsHeader;

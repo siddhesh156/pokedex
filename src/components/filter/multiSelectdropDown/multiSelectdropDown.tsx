@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import React, { ReactNode } from 'react'; // Removed FC from here
+import React, { ReactNode } from 'react';
 import { CheckPicker } from 'rsuite';
 import './multiSelectdropDown.scss';
 
@@ -45,15 +44,6 @@ const AppMultiSelectDropDown: React.FC<AppMultiSelectDropDownProps> = ({
   </>
 );
 
-AppMultiSelectDropDown.propTypes = {
-  data: PropTypes.array.isRequired,
-  placeholder: PropTypes.string,
-  onChangeHandler: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool,
-  onCloseHandler: PropTypes.func,
-  onCleanHandler: PropTypes.func,
-  onOpenHandler: PropTypes.func,
-  label: PropTypes.node.isRequired,
-};
+
 
 export default AppMultiSelectDropDown;

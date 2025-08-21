@@ -1,11 +1,16 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { getBackground } from '../../constants/pokemon.types';
 import { numberFormation } from '../../services/common.service';
 import './pokemonCard.scss';
 
 
-const PokemonCard = ({ data, onClick, className }) => {
+interface PokemonCardProps {
+    data: any; // Replace 'any' with a more specific type if available
+    onClick?: () => void;
+    className?: string;
+}
+
+const PokemonCard: React.FC<PokemonCardProps> = ({ data, onClick, className }) => {
     return (
         <>
             <div className={`${className} card`} onClick={onClick} role="presentation" style={{
@@ -24,10 +29,6 @@ const PokemonCard = ({ data, onClick, className }) => {
     );
 };
 
-PokemonCard.propTypes = {
-    data: PropTypes.object,
-    onClick: PropTypes.func,
-    className: PropTypes.string,
-};
+
 
 export default PokemonCard;

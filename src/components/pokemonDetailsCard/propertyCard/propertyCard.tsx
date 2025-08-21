@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Col, Grid, Row } from 'rsuite';
 import { getCamleCaseString } from '../../../constants/pokemon.types';
@@ -6,7 +5,13 @@ import '../../../styles/common.scss';
 import ColorfulTag from '../colorfulTags/colorfulTag';
 import './propertyCard.scss';
 
-const PropertyCard = ({ speciesData, data, pokemonTypeData }) => {
+interface PropertyCardProps {
+  speciesData: any;
+  data: any;
+  pokemonTypeData: any;
+}
+
+const PropertyCard: React.FC<PropertyCardProps> = ({ speciesData, data, pokemonTypeData }) => {
   return (
     <div className="property-container">
       <Grid fluid>
@@ -75,10 +80,6 @@ const PropertyCard = ({ speciesData, data, pokemonTypeData }) => {
   );
 };
 
-PropertyCard.propTypes = {
-  speciesData: PropTypes.object,
-  data: PropTypes.object,
-  pokemonTypeData: PropTypes.object,
-};
+
 
 export default PropertyCard;
