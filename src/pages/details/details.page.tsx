@@ -82,7 +82,7 @@ const DetailPage: React.FC<DetailPageProps> = ({ isCardSelected, toggleModal, po
                                     {data.stats && (<StatCard stats={data.stats} />)}
                                 </div>
                                 <div className="padding-components">
-                                    <EvolutionChainCard data={data} />
+                                    <EvolutionChainCard data={data} speciesData={pokemonSpeciesData} />
                                 </div>
 
                             </Modal.Header>
